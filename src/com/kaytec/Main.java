@@ -1,5 +1,6 @@
 package com.kaytec;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -8,18 +9,30 @@ public class Main {
         int x = 32;
         int y = 0;
 
-        System.out.println(divideLBYL(x, y));
-        System.out.println(divideEAFP(x, y));
+//        System.out.println(divideLBYL(x, y));
+//        System.out.println(divideEAFP(x, y));
 //        System.out.println(divide(x, y));
 
 //        int z = getInt();
-        int z = getIntLBYL();
+//        int z = getIntLBYL();
+        int z = getIntEAFP();
         System.out.println("z is " + z);
     }
 
     private static int getInt() {
         Scanner s = new Scanner(System.in);
         return s.nextInt();
+    }
+
+    private static int getIntEAFP() {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Please print an integer: ");
+        try {
+            return s.nextInt();
+            // generally, want to catch specific exception rather than just Exception
+        } catch (InputMismatchException e) {
+            return 0;
+        }
     }
 
     private static int getIntLBYL() {
