@@ -6,22 +6,19 @@ import java.util.Scanner;
 
 public class Example {
     public static void main(String[] args) {
-        int result = divide();
-        System.out.println(result);
+        try {
+            int result = divide();
+            System.out.println(result);
+        }  catch (NoSuchElementException | ArithmeticException e) {
+            System.out.println("Unable to perform division!");
+        }
     }
 
     private static int divide() {
-        int x, y;
-        try {
-            x = getInt();
-            y = getInt();
-            System.out.println("x: " + x + ", y: " + y);
-            return x / y;
-        } catch (NoSuchElementException e) {
-            throw new NoSuchElementException("Not suitable input!");
-        } catch(ArithmeticException e) {
-            throw new ArithmeticException("Attempt to divide by zero!");
-        }
+        int x = getInt();
+        int y = getInt();
+        System.out.println("x: " + x + ", y: " + y);
+        return x / y;
     }
 
     private static int getInt() {
